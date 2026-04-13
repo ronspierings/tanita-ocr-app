@@ -2,4 +2,5 @@
   <Project Path="TanitaTracker.Api/TanitaTracker.Api.csproj" />
   <Project Path="TanitaTracker.Core/TanitaTracker.Core.csproj" />
   <Project Path="TanitaTracker.Infrastructure/TanitaTracker.Infrastructure.csproj" />
+  <Project Path="TanitaTracker.Web/TanitaTracker.Web/TanitaTracker.Web.csproj" />
 </Solution>
