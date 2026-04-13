@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\TanitaTracker.Core\TanitaTracker.Core.csproj" />
     <ProjectReference Include="..\TanitaTracker.Web.Client\TanitaTracker.Web.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="10.0.5" />
   </ItemGroup>
