@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TanitaTracker.Infrastructure\TanitaTracker.Infrastructure.csproj" />
+    <ProjectReference Include="..\TanitaTracker.Core\TanitaTracker.Core.csproj" />
   </ItemGroup>
 
 </Project>
