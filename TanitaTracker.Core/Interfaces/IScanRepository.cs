@@ -2,6 +2,10 @@
 
 namespace TanitaTracker.Core.Interfaces;
 
+/// <summary>
+/// IScanRepository manages the definitions of CRUD operations into a database.
+/// Implementation examples: TanitaTracker.API and TanitaTracker.Infrastructure.
+/// </summary>
 public interface IScanRepository
 {
     Task<BodyCompositionScan?> GetByIdAsync(Guid id, string userId, CancellationToken cancellationToken = default);
