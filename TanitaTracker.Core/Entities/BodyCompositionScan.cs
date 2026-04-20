@@ -1,4 +1,4 @@
-﻿namespace TanitaTracker.Core;
+﻿namespace TanitaTracker.Core.Entities;
 
 /// <summary>
 /// This Core Class represents the physical Tantita Print and matches the self trained Azure OCR-Model "tanita-ocr".
