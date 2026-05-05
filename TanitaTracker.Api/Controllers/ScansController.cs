@@ -41,9 +41,16 @@ namespace TanitaTracker.Api.Controllers
             throw new NotImplementedException("Not yet implemented");
         }
 
-        [HttpPost]
+        [HttpPost("save")]
         public async Task<IActionResult> SaveScan([FromBody] BodyCompositionScan scan, CancellationToken ct)
         {
+            
+            if (scan == null)
+                return BadRequest("Scan data is required");
+
+            if (string.IsNullOrEmpty(scan.UserId))
+                return BadRequest("UserId is required");
+
             // TODO: Write implementation
             throw new NotImplementedException("Not yet implemented");
         }
