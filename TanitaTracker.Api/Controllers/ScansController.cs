@@ -37,7 +37,7 @@ namespace TanitaTracker.Api.Controllers
             if (file.Length == 0) 
                 return BadRequest("No file uploaded.");
 
-            // Start implementation
+            // Enter the file and read it's data
             using var stream = file.OpenReadStream();
 
             // Pass the stream to the Azure OCR service (Implementation lives in Infrastructure)
