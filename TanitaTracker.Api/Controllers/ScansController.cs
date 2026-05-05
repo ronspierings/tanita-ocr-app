@@ -30,8 +30,24 @@ namespace TanitaTracker.Api.Controllers
         [HttpPost("analyze")]
         public async Task<ActionResult<BodyCompositionScan>> AnalyzeDocument(IFormFile file, CancellationToken ct)
         {
-            // TODO: Write a implementation
-            throw new NotImplementedException("Not yet impemented");
+            // Value checks
+            if (file == null ) 
+                return BadRequest("No file uploaded.");
+
+            if (file.Length == 0) 
+                return BadRequest("No file uploaded.");
+
+            // Start implementation
+            using var stream = file.OpenReadStream();
+
+            // Pass the stream to the Azure OCR service (Implementation lives in Infrastructure)
+            var scanResult = await _ocrService.AnalyzeScanAsync(stream, ct);
+
+            // Tie the temporary result to the user
+            scanResult.UserId = GetUserId();
+
+            // We return the result to Blazor for validation, we do NOT save to the DB yet.
+            return Ok(scanResult);
         }
 
         [HttpGet]
