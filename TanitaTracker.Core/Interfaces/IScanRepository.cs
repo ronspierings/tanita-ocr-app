@@ -3,8 +3,8 @@
 namespace TanitaTracker.Core.Interfaces;
 
 /// <summary>
-/// IScanRepository manages the definitions of CRUD operations into a database.
-/// Implementation examples: TanitaTracker.API and TanitaTracker.Infrastructure.
+/// IScanRepository manages the definitions of CRUD operations of the BodyCompositionScan to a (Data) storage platform of choice
+/// Implementation examples: TanitaTracker.API and TanitaTracker.Infrastructure
 /// </summary>
 public interface IScanRepository
 {
