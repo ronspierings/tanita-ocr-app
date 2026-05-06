@@ -9,6 +9,7 @@ namespace TanitaTracker.Core.Interfaces
     {
         /// <summary>
         /// Analyzes a stream (image) using the custom Tanita OCR model and maps it to the domain entity.
+        /// Example implementation: Infrastructure.Services.AzureOcrService
         /// </summary>
         Task<BodyCompositionScan> AnalyzeScanAsync(Stream documentStream, CancellationToken cancellationToken = default);
     }
