@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using TanitaTracker.Infrastructure.Data; //
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,15 +8,17 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi(); // Instead of Swagger we use OpenApi https://aka.ms/aspnet/openapi
 builder.Services.AddAuthorization();
-builder.Services.AddIdentityApiEndpoints<IdentityUser>();
+builder.Services.AddIdentityApiEndpoints<IdentityUser>().AddEntityFrameworkStores<ApplicationDbContext>();
 
 // TODO: Dependency Injections when done
 // builder.Services.AddScoped<IScanRepository, ScanRepository>();
 // builder.Services.AddScoped<IOcrService, AzureOcrService>();
 
 // TODO: Add ApplicationDBContext when done
-builder.Services.AddIdentityApiEndpoints<IdentityUser>();
-// .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddDbContext<ApplicationDbContext>();
+
+
+
 
 // CORS configuration policy so Blazor WebAssembly can communicate with this API
 builder.Services.AddCors(options =>
