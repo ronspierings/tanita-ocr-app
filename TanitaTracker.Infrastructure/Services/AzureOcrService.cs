@@ -20,8 +20,7 @@ namespace TanitaTracker.Infrastructure.Services
         {
             // Retrieve endpoints and keys from config
             var endpoint = config["AzureAi:Endpoint"] ?? throw new ArgumentNullException("AzureAi:Endpoint");
-            var key = config["AzureAi:Key"] ?? throw new ArgumentNullException("AzureAi:Key");
-
+            
             _client = new DocumentIntelligenceClient(new Uri(endpoint), new DefaultAzureCredential());
         }
 
