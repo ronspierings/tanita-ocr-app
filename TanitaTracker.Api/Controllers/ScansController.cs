@@ -27,6 +27,8 @@ namespace TanitaTracker.Api.Controllers
         // Helper to securely get the logged-in user's ID. See Claims for the definition
         private string GetUserId() => User.FindFirstValue(ClaimTypes.NameIdentifier) ?? string.Empty;
 
+        // TODO: Decide later if the Anonymous analyze calls are allowed
+        [AllowAnonymous]
         [HttpPost("analyze")]
         public async Task<ActionResult<BodyCompositionScan>> AnalyzeDocument(IFormFile file, CancellationToken ct)
         {

@@ -1,23 +1,25 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using TanitaTracker.Infrastructure.Data; //
+using Scalar.AspNetCore;
+using TanitaTracker.Infrastructure.Data;
+using TanitaTracker.Infrastructure.Services;
+using TanitaTracker.Infrastructure.Repositories;
+using TanitaTracker.Core.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container
+// Add services to the IoC container
 builder.Services.AddControllers();
-builder.Services.AddOpenApi(); // Instead of Swagger we use OpenApi https://aka.ms/aspnet/openapi
+builder.Services.AddOpenApi();
 builder.Services.AddAuthorization();
 builder.Services.AddIdentityApiEndpoints<IdentityUser>().AddEntityFrameworkStores<ApplicationDbContext>();
 
 // TODO: Dependency Injections when done
-// builder.Services.AddScoped<IScanRepository, ScanRepository>();
-// builder.Services.AddScoped<IOcrService, AzureOcrService>();
+builder.Services.AddScoped<IScanRepository, ScanRepository>();
+builder.Services.AddScoped<IOcrService, AzureOcrService>();
 
 // TODO: Add ApplicationDBContext when done
 builder.Services.AddDbContext<ApplicationDbContext>();
-
-
 
 
 // CORS configuration policy so Blazor WebAssembly can communicate with this API
@@ -36,7 +38,9 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    // Documentation tooling for testing:
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();

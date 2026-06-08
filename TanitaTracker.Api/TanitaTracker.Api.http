@@ -1,6 +1,16 @@
 @TanitaTracker.Api_HostAddress = http://localhost:5029
+@TanitaTracker.Api.authToken = Bearer OUR_TOKEN_HERE
 
-GET {{TanitaTracker.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+### 1. Analyze Document (Allows Anonymous)
+# Ensure you replace the file path with a valid local path to a test scan image.
+POST {{hostname}}/api/Scans/analyze
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="sample_scan.jpg"
+Content-Type: image/jpeg
+
+< ./sample_scan.jpg
+--WebAppBoundary--
 
 ###
