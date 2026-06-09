@@ -1,5 +1,8 @@
 stages:
-- stage: BuildAndTest
-  displayName: 'Build and Test Solution'
+- stage: Build
+  displayName: Run Compile and for .Core, .Infrastructure, .API and .WEB
   jobs:  
-    # Compiling .Core, .Infrastructure, .API and .Web (to be finished)
+    - job: BuildJob
+      steps:
+      - script: dotnet build
+      
