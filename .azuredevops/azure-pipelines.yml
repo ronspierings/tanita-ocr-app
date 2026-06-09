@@ -1,0 +1,5 @@
+stages:
+- stage: BuildAndTest
+  displayName: 'Build and Test Solution'
+  jobs:  
+    # Compiling .Core, .Infrastructure, .API and .Web (to be finished)
